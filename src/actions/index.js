@@ -5,30 +5,30 @@ export const contactsFetched = photos => ({
   photos,
 });
 
-export const searchContacts = (text) => ({
-  type: 'SEARCH_CONTACTS',
-  text
+// export const searchContacts = (text) => ({
+//   type: 'SEARCH_CONTACTS',
+//   text
+// });
+
+export const changeCategory = category => ({
+  type: 'CHANGE_CATEGORY',
+  category
 });
 
-export const changeSeed = seed => ({
-  type: 'CHANGE_SEED',
-  seed
-});
-
-export const isLoading = boolean => ({
-  type: 'IS_FETCHING',
-  isFetching: boolean
-});
+// export const isLoading = boolean => ({
+//   type: 'IS_FETCHING',
+//   isFetching: boolean
+// });
 
 export const fetchContacts = () => (dispatch, getState) => {
   UnsplashApi(getState).then(photos => {
     dispatch(contactsFetched(photos));
-    dispatch(isLoading(true));
+    // dispatch(isLoading(true));
   });
 };
   
-export const changeSeedAndFetch = seed => dispatch => {
-  dispatch(isLoading(false));
-  dispatch(changeSeed(seed));
+export const changeCategoryAndFetch = category => dispatch => { 
+  // dispatch(isLoading(false));
+  dispatch(changeCategory(category));
   dispatch(fetchContacts());
 }
