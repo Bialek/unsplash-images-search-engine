@@ -11,7 +11,7 @@ class SearchInput extends React.Component {
 
     onSubmitHandler = e => {
         e.preventDefault();
-        this.props.changeCategoryAndFetch(this.state.value);
+        this.props.changeCategoryAndFetch((this.state.value).toLowerCase());
     }
 
     render() {
@@ -21,7 +21,6 @@ class SearchInput extends React.Component {
                     <input
                         type='text'
                         onChange={this.onChangeHandler}
-                        value={this.props.category}
                     ></input>
                     <input
                         type='submit'

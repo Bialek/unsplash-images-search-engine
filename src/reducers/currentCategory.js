@@ -1,6 +1,6 @@
-export const changeCategory = (state = '', action) => { 
+export const currentCategory = (state = '', action) => { 
     switch (action.type) {
-        case 'CHANGE_CATEGORY':
+        case 'CURRENT_CATEGORY':
             return action.category
         default:
             return state

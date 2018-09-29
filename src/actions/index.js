@@ -10,8 +10,13 @@ export const contactsFetched = photos => ({
 //   text
 // });
 
-export const changeCategory = category => ({
-  type: 'CHANGE_CATEGORY',
+export const currentCategory = category => ({
+  type: 'CURRENT_CATEGORY',
+  category
+});
+
+export const categoryList = category => ({
+  type: 'CATEGORY_LIST',
   category
 });
 
@@ -29,6 +34,7 @@ export const fetchContacts = () => (dispatch, getState) => {
   
 export const changeCategoryAndFetch = category => dispatch => { 
   // dispatch(isLoading(false));
-  dispatch(changeCategory(category));
+  dispatch(currentCategory(category));
+  dispatch(categoryList(category));
   dispatch(fetchContacts());
 }

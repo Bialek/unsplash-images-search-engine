@@ -6,9 +6,8 @@ const unsplash = new Unsplash({
 	callbackUrl: "https://unsplash.com/"
 });
 
-const UnsplashApi = (getState) => { console.log(getState().changeCategory);
-
-    return unsplash.search.photos(getState().changeCategory, 1, 20)
+const UnsplashApi = (getState) => {
+    return unsplash.search.photos(getState().currentCategory, 1, 20)
         .then(response => response.json())
         .then(responseJson =>  { return responseJson.results })
 }
