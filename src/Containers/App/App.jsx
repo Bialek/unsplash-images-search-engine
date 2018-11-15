@@ -1,21 +1,24 @@
 import React, { Component } from 'react';
 import './App.css';
-import PhotosList from '../../Presetional/PhotosList/PhotosList';
+import { PhotoListContainer } from '../../Containers/PhotoList/PhotoListContainer';
 import { SearchInputContainer } from '../../Containers/SearchInput/SearchInputContainer';
 import { CategoriesListContainer } from '../../Containers/CategoriesList/CategoriesListContainer';
+import { FavoriteAndSortByContainer } from '../FavoriteAndSortBy/FavoriteAndSortByContainer';
 import DevTools from '../../DevTools';
 
 class App extends Component {
-  componentWillMount() {
+
+  componentDidMount() {
     this.props.fetchContacts();
   }
 
   render() {
     return (
       <div className="App">
-        <SearchInputContainer />
+        <SearchInputContainer /> 
+        <FavoriteAndSortByContainer />
         <CategoriesListContainer />
-        <PhotosList photos={this.props.photos} />
+        <PhotoListContainer />
         <DevTools />
       </div>
     );

@@ -1,22 +1,24 @@
 import React from 'react';
 
+class CategoriesList extends React.Component {
 
-// class CategoriesList extends React.Component {
+  onClickHandler = e => {
+    this.props.changeCategoryAndFetch(e.target.value)
+  }
 
-// }
-
-const CategoriesList = ({categoriesList}) =>{ 
-
+  render() {
     return (
-    <div>
-        {categoriesList.map(category =>  
-            <button
-                
-            > {category}
-            </button>
+      <div>
+        {this.props.categoriesList.map((category, k) =>  
+          <button
+            key={k}
+            value={category}
+            onClick={this.onClickHandler}
+          > {category}
+          </button>
         )}
-    </div>
-    
-)} 
-
+      </div>  
+    )
+  }
+}
 export default CategoriesList

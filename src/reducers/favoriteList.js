@@ -1,6 +1,6 @@
-export const categoriesList = (state = [], action) => { 
+export const favoriteList = (state = [], action) => { 
     switch (action.type) {
-        case 'CATEGORY_LIST':
+        case 'FAVORITE_LIST':
             if (state.indexOf(action.category) === -1) {           
                 return [...state, action.category]
             } 

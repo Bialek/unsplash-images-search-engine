@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import categoriesList from '../../Presetional/CategoriesList/CategoriesList';
+import { changeCategoryAndFetch } from '../../actions/index';
 
 const mapStateToProps = state => { 
     return {
@@ -8,6 +9,9 @@ const mapStateToProps = state => {
     
 }
 
+const mapDispatchToProps = { changeCategoryAndFetch }
+
 export const CategoriesListContainer = connect(
-    mapStateToProps
+    mapStateToProps,
+    mapDispatchToProps
 )(categoriesList)

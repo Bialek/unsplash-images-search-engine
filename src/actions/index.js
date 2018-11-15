@@ -15,9 +15,19 @@ export const currentCategory = category => ({
   category
 });
 
+export const sortBy = sortBy => ({
+  type: 'SORT_BY',
+  sortBy
+});
+
 export const categoryList = category => ({
   type: 'CATEGORY_LIST',
   category
+});
+
+export const favoriteList = favorite => ({
+  type: 'FAVORITE_LIST',
+  favorite
 });
 
 // export const isLoading = boolean => ({
@@ -28,6 +38,8 @@ export const categoryList = category => ({
 export const fetchContacts = () => (dispatch, getState) => {
   UnsplashApi(getState).then(photos => {
     dispatch(contactsFetched(photos));
+    
+    
     // dispatch(isLoading(true));
   });
 };

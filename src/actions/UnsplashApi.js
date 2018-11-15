@@ -9,7 +9,9 @@ const unsplash = new Unsplash({
 const UnsplashApi = (getState) => {
     return unsplash.search.photos(getState().currentCategory, 1, 20)
         .then(response => response.json())
-        .then(responseJson =>  { return responseJson.results })
+        .then(responseJson => {  return responseJson.results })
 }
+
+
 
 export default UnsplashApi
