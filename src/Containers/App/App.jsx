@@ -9,7 +9,7 @@ import DevTools from '../../DevTools';
 class App extends Component {
 
   componentDidMount() {
-    this.props.fetchContacts();
+    this.props.fetchphotos();
   }
 
   render() {
@@ -18,7 +18,9 @@ class App extends Component {
         <SearchInputContainer /> 
         <FavoriteAndSortByContainer />
         <CategoriesListContainer />
-        <PhotoListContainer />
+        <main>
+          {this.props.isFetching ? <PhotoListContainer /> : 'loading'}
+        </main>
         <DevTools />
       </div>
     );

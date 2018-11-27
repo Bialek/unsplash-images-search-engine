@@ -1,14 +1,9 @@
 import UnsplashApi from './UnsplashApi';
 
-export const contactsFetched = photos => ({
-  type: 'FETCH_CONTACTS_SUCCESS',
+export const photosFetched = photos => ({
+  type: 'FETCH_PHOTOS_SUCCESS',
   photos,
 });
-
-// export const searchContacts = (text) => ({
-//   type: 'SEARCH_CONTACTS',
-//   text
-// });
 
 export const currentCategory = category => ({
   type: 'CURRENT_CATEGORY',
@@ -30,23 +25,25 @@ export const favoriteList = favorite => ({
   favorite
 });
 
-// export const isLoading = boolean => ({
-//   type: 'IS_FETCHING',
-//   isFetching: boolean
-// });
+export const getFavorite = () => (dispatch, getState) => {
+  dispatch(photosFetched(getState().favoriteList));
+};
 
-export const fetchContacts = () => (dispatch, getState) => {
+export const isfetching = boolean => ({
+  type: 'IS_FETCHING',
+  isFetching: boolean
+});
+
+export const fetchphotos = () => (dispatch, getState) => {
   UnsplashApi(getState).then(photos => {
-    dispatch(contactsFetched(photos));
-    
-    
-    // dispatch(isLoading(true));
+    dispatch(photosFetched(photos));
+    dispatch(isfetching(true));
   });
 };
   
 export const changeCategoryAndFetch = category => dispatch => { 
-  // dispatch(isLoading(false));
+  dispatch(isfetching(false));
   dispatch(currentCategory(category));
   dispatch(categoryList(category));
-  dispatch(fetchContacts());
+  dispatch(fetchphotos());
 }

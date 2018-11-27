@@ -1,8 +1,11 @@
 import { connect } from 'react-redux';
-import { sortBy } from '../../actions/index';
+import { sortBy, getFavorite } from '../../actions/index';
 import  FavoriteAndSortBy from '../../Presetional/FavoriteAndSortBy/FavoriteAndSortBy';
 
-const mapDispatchToProps = { sortBy }
+const mapDispatchToProps = { 
+    sortBy,
+    getFavorite
+ }
 
 export const FavoriteAndSortByContainer = connect(
     null,

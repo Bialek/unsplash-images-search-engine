@@ -1,6 +1,6 @@
 export const photos = (state = [], action) => {
     switch (action.type) {
-        case 'FETCH_CONTACTS_SUCCESS': 
+        case 'FETCH_PHOTOS_SUCCESS': 
             return [
                 ...action.photos,
             ]    

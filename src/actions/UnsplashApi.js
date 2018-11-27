@@ -12,6 +12,4 @@ const UnsplashApi = (getState) => {
         .then(responseJson => {  return responseJson.results })
 }
 
-
-
 export default UnsplashApi

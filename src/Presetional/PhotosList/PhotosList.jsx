@@ -1,12 +1,13 @@
 import React from 'react';
-import Photo from '../Photo/Photo';
+import './Photo.css'; 
 import './PhotosList.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 class PhotosList extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
-            sortedPhotos: []
+            sortedPhotos: this.props.photos
         }
     }
 
@@ -17,21 +18,32 @@ class PhotosList extends React.Component {
     }
 
     Sort(sortBy) { 
-		return (a,b) => {
-			const result = (a[sortBy] < b[sortBy]) ? -1 : (a[sortBy] > b[sortBy]) ? 1 : 0;
-			return result * -1;
-		}
+        if (sortBy !== '') {
+            return (a,b) => {
+                const result = (a[sortBy] < b[sortBy]) ? -1 : (a[sortBy] > b[sortBy]) ? 1 : 0;
+                return result * -1;
+            }
+        } 
+    }
+
+    onClickHandler = photo => {
+        this.props.favoriteList(photo)
     }
     
-    render() { 
+    render() {
         return ( 
             <div className="photosContainer">
                 {this.state.sortedPhotos.map(photo => 
-                    <Photo 
+                    <div 
                         key={photo.id} 
-                        photo={photo}
-                        // addFavourite={(photo) => addFavourite(photo)}
-                    />)}
+                        className="photo"
+                        >   
+                            <img src={photo.urls.small} alt="unsplash"/>
+                            <button onClick={() => this.onClickHandler(photo)} >
+                                <FontAwesomeIcon icon="heart" />
+                            </button> 
+                    </div> 
+                )}         
             </div>
         )
     }

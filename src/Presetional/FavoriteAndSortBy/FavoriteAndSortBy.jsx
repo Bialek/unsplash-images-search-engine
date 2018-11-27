@@ -4,7 +4,7 @@ import './FavoriteAndSortBy.css'
 class FavoriteAndSortBy extends React.Component {
 
   onClickHandler = () => {
-
+    this.props.getFavorite()
   }
 
   onChangeHandler = e => {
@@ -23,7 +23,7 @@ class FavoriteAndSortBy extends React.Component {
         <select onChange={this.onChangeHandler}>
           <option value=""> </option>
           <option value="created_at">Created at</option>
-          <option value="downloads">Downloads count</option>
+          <option value="updated_at">Updated_at</option>
           <option value="likes">likes count</option>
 				</select>
       </div>

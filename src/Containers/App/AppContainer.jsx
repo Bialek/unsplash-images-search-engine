@@ -1,10 +1,16 @@
 import { connect } from 'react-redux';
-import { fetchContacts } from '../../actions';
+import { fetchphotos } from '../../actions';
 import App from './App';
 
-const mapDispatchToProps = { fetchContacts };
+const mapStateToProps = state => {
+    return {
+        isFetching: state.isFetching
+    }
+}
+
+const mapDispatchToProps = { fetchphotos };
 
 export const AppContainer = connect(
-    null,
+    mapStateToProps,
     mapDispatchToProps,
     )(App);
