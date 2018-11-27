@@ -1,6 +1,5 @@
 import React from 'react';
-import './Photo.css'; 
-import './PhotosList.css';
+import { PhotosWrapper, Photo, PhotoImg, PhotoBtn } from '../../StyledComponents/PhotosList';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 class PhotosList extends React.Component {
@@ -32,19 +31,16 @@ class PhotosList extends React.Component {
     
     render() {
         return ( 
-            <div className="photosContainer">
+            <PhotosWrapper>
                 {this.state.sortedPhotos.map(photo => 
-                    <div 
-                        key={photo.id} 
-                        className="photo"
-                        >   
-                            <img src={photo.urls.small} alt="unsplash"/>
-                            <button onClick={() => this.onClickHandler(photo)} >
-                                <FontAwesomeIcon icon="heart" />
-                            </button> 
-                    </div> 
+                    <Photo key={photo.id} >   
+                        <PhotoImg src={photo.urls.small} alt="unsplash"/>
+                        <PhotoBtn onClick={() => this.onClickHandler(photo)} >
+                            <FontAwesomeIcon icon="heart" />
+                        </PhotoBtn> 
+                    </Photo> 
                 )}         
-            </div>
+            </PhotosWrapper>
         )
     }
 }

@@ -1,8 +1,10 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Search, SearchText, SearchBtn } from '../../StyledComponents/SearchInput';
 
 class SearchInput extends React.Component {
     state = {
-        value: ''
+        value: '',
     }
 
     onChangeHandler = e => {
@@ -16,17 +18,16 @@ class SearchInput extends React.Component {
 
     render() {
         return (
-            <div>
-                <form onSubmit={this.onSubmitHandler}>
-                    <input
-                        type='text'
-                        onChange={this.onChangeHandler}
-                    ></input>
-                    <input
-                        type='submit'
-                    ></input>
-                </form>
-            </div>
+            <Search onSubmit={this.onSubmitHandler}>
+                <SearchText
+                    type='text'
+                    placeholder='What do you want to find?'
+                    onChange={this.onChangeHandler}
+                ></SearchText>
+                <SearchBtn type='submit'>
+                    <FontAwesomeIcon icon='search' />
+                </SearchBtn>
+            </Search>
         )
     }
 

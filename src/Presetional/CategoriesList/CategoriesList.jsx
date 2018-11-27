@@ -1,4 +1,5 @@
 import React from 'react';
+import { CategoriesWrapper, CategoriesBtn } from '../../StyledComponents/CategoriesList';
 
 class CategoriesList extends React.Component {
 
@@ -8,16 +9,16 @@ class CategoriesList extends React.Component {
 
   render() {
     return (
-      <div>
+      <CategoriesWrapper>
         {this.props.categoriesList.map((category, k) =>  
-          <button
+          <CategoriesBtn
             key={k}
             value={category}
             onClick={this.onClickHandler}
           > {category}
-          </button>
+          </CategoriesBtn>
         )}
-      </div>  
+      </CategoriesWrapper>  
     )
   }
 }

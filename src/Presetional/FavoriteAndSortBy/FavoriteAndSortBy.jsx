@@ -1,5 +1,6 @@
 import React from 'react';
-import './FavoriteAndSortBy.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FavoriteAndSortByWrapper, FavoriteAndSortByBtn, FavoriteAndSortByLabel } from '../../StyledComponents/FavoriteAndSortBy';
 
 class FavoriteAndSortBy extends React.Component {
 
@@ -13,20 +14,20 @@ class FavoriteAndSortBy extends React.Component {
 
   render() {
     return (
-      <div className="FavoriteAndSortBy">
-        <button
-          onClick={this.onClickHandler}
-        >Favorite
-        </button>
+      <FavoriteAndSortByWrapper>
+        <FavoriteAndSortByBtn onClick={this.onClickHandler}>
+          <FontAwesomeIcon icon='heart' />
+          Show favorite
+        </FavoriteAndSortByBtn>
 
-        <p>Sort By:</p>
+        <FavoriteAndSortByLabel>Sort By:</FavoriteAndSortByLabel>
         <select onChange={this.onChangeHandler}>
           <option value=""> </option>
           <option value="created_at">Created at</option>
           <option value="updated_at">Updated_at</option>
           <option value="likes">likes count</option>
 				</select>
-      </div>
+      </FavoriteAndSortByWrapper>
     )
   }
 }
