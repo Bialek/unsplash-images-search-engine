@@ -3,7 +3,7 @@ import { PhotoListContainer } from '../../Containers/PhotoList/PhotoListContaine
 import { SearchInputContainer } from '../../Containers/SearchInput/SearchInputContainer';
 import { CategoriesListContainer } from '../../Containers/CategoriesList/CategoriesListContainer';
 import { FavoriteAndSortByContainer } from '../FavoriteAndSortBy/FavoriteAndSortByContainer';
-import DevTools from '../../DevTools';
+// import DevTools from '../../DevTools';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Header, Logo } from '../../StyledComponents/Header';
 
@@ -28,7 +28,7 @@ class App extends Component {
         <main>
           {this.props.isFetching ? <PhotoListContainer /> : 'loading'}
         </main>
-        <DevTools />
+        {/* <DevTools /> */}
       </div>
     );
   }
